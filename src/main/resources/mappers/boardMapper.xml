@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.ksshlee.study.mappers.boardMapper">
+ 
+ 
+ 
+ <!-- 전체 글 조회 -->
+ <select id="allBoard" resultType="boardVO">
+ 	SELECT pid,title,author FROM Board
+ </select>
+ 
+ 
+ <!-- 선택된 게시글 조회 -->
+ <select id="readBoard" resultType="boardVO">
+ 	SELECT pid,title,content,author FROM Board WHERE pid = #{pid}
+ </select>
+ 
+ 
+ <!-- 게시글 삭제 -->
+ <delete id="deleteBoard">
+ 	DELETE from Board where pid = #{pid}
+ </delete>
+ 
+ 
+ 
+ <!-- 게시글 생성 -->
+ <insert id="createBoard">
+ 	INSERT INTO Board (title,content,pwd,author) values (#{title},#{content},#{pwd},#{author})
+ </insert>
+ 
+ 
+ 
+ <!-- 게시글 수정 -->
+ <update id="modifyBoard">
+ UPDATE Board SET title=#{title}, content=#{content}, author=#{author}, pwd=#{pwd}
+ WHERE pid = #{pid}
+ </update>
+  
+  
+</mapper>
