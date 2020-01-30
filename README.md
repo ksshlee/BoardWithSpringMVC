@@ -10,6 +10,16 @@
 - mysql 8.0.18
 - jstl 1.2
 
+- pom.xml에서 dependency를 확인해주세요!
+
+
+## 어플리케이션 시작 방법
+
+1. 파일 다운로드
+2. 같은 디렉토리내에 tomcat 서버 추가
+3. 해당 프로젝트의 maven -> update project
+
+
 
 **자세한 사항은 pom.xml 확인!!**
 
