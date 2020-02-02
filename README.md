@@ -15,13 +15,29 @@
 
 ## 어플리케이션 시작 방법
 
-1. 파일 다운로드
-2. 같은 디렉토리내에 tomcat 서버 추가
-3. 해당 프로젝트의 maven -> update project
+**시작전 주의사항**
+1. 해당 프로젝트는 Spring 4.3.20.RELEASE 버전으로 빌드 되었습니다.
+2. MySQL 8.0.18 버전을 설치해주세요
+3. Tomcat 9.0 버전을 설치해주세요
 
 
+**실행 방법**
+1. 적절한 directory에 파일 클론
 
-**자세한 사항은 pom.xml 확인!!**
+2. 아래의 명령어로 mysql 실행
+```java
+mysql.server start
+
+or
+
+brew services start mysql
+```
+3. eclipse로 해당 디렉토리 작업 폴더로 열기
+4. server 추가후 tomcat 9.0 추가
+5. 해당 프로젝트에 마우스오른쪽 -> maven -> update project 로 라이브러리 추가
+6. 해당 프로젝트에 마우스 오른쪽 run as -> run on server -> tomcat 9로 실행
+
+
 
 <br><br>
 
