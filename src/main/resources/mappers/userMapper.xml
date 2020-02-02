@@ -11,5 +11,9 @@
   	INSERT INTO user (id,pwd,user_name) values (#{id},#{pwd},#{user_name})
   </insert>
   
- 
+  
+  <select id="findId" resultType="userVO">
+  	SELECT * FROM user WHERE id = #{id}
+  </select>
+  
   </mapper>
