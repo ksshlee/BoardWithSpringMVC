@@ -1,6 +1,7 @@
 package com.ksshlee.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +17,11 @@ public class CommentController {
 	private CommentService cservice;
 	
 	
-	// 댓글 생성
+		// 댓글 생성
 		@RequestMapping(value = "/createComment", method = RequestMethod.POST)
-		public String newComment(@RequestParam("pid") int pid, CommentVO comment) throws Exception {
+		public String newComment(@RequestParam("pid") int pid, CommentVO comment,HttpSession session) throws Exception {
 			comment.setBid(pid);
+			comment.setAuthor((String) session.getAttribute("sessionUserId"));
 			cservice.createComment(comment);
 			return "redirect:read?pid=" + pid;
 		}
@@ -33,10 +35,11 @@ public class CommentController {
 
 		// 댓글 답글 생성
 		@RequestMapping(value = "/createCommentOfComment", method = RequestMethod.POST)
-		public String newCommentOfComment(@RequestParam("pid") int pid, @RequestParam("cid") int cid, CommentVO comment)
-				throws Exception {
+		public String newCommentOfComment(@RequestParam("pid") int pid, @RequestParam("cid") int cid, CommentVO comment,
+				HttpSession session) throws Exception {
 			comment.setBid(pid);
 			comment.setRcid(cid);
+			comment.setAuthor((String) session.getAttribute("sessionUserId"));
 			cservice.createCommentOfComment(comment);
 			return "redirect:read?pid=" + pid;
 		}
@@ -45,11 +48,6 @@ public class CommentController {
 		@RequestMapping(value = "/modifyComment", method = RequestMethod.POST)
 		public String modifyComment(@RequestParam("pid") int pid, CommentVO comment) throws Exception {
 
-			System.out.println(comment.getAuthor());
-			System.out.println(comment.getContent());
-			System.out.println(comment.getPwd());
-			System.out.println(comment.getCid());
-			System.out.println(comment.getRcid());
 			
 			cservice.modifyComment(comment);
 

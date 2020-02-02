@@ -35,8 +35,7 @@
  
  <!-- 게시글 수정 -->
  <update id="modifyBoard">
- UPDATE Board SET title=#{title}, content=#{content}, author=#{author}, pwd=#{pwd}
- WHERE pid = #{pid}
+ UPDATE Board SET title=#{title}, content=#{content} WHERE pid = #{pid}
  </update>
   
   

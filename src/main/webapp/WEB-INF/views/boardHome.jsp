@@ -19,11 +19,10 @@
 
 	</c:choose>
 
-
-	<a href="./newBoard">글쓰기</a>
 	<c:choose>
 
 		<c:when test="${!empty sessionUserId}">
+			<a href="./newBoard">글쓰기</a>
 			<a href="./logout">로그아웃</a>
 		</c:when>
 

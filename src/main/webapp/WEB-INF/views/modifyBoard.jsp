@@ -24,16 +24,6 @@
 				<th width="30%">내용
 				<td width="30%"><textarea cols="50" rows="10" name="content">${boardVO.content}</textarea>
 			</tr>
-			<tr>
-				<th>작성자
-				<td><input type="text" value="${boardVO.author}" name="author">
-			</tr>
-			
-			<tr>
-				<th>비밀번호
-				<td><input type="password" name="pwd">
-			</tr>
-
 
 		</tbody>
 	</table>
