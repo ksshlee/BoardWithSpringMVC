@@ -5,7 +5,6 @@ public class CommentVO {
 	private int bid;//게시물 id
 	private String content;//덧글 내용 
 	private String author;
-	private String pwd;
 	private int rcid;//대댓글 달 댓글 id
 	
 	
@@ -33,12 +32,6 @@ public class CommentVO {
 	}
 	public void setAuthor(String author) {
 		this.author = author;
-	}
-	public String getPwd() {
-		return pwd;
-	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
 	}
 	public int getRcid() {
 		return rcid;

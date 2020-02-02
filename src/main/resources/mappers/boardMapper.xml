@@ -28,15 +28,14 @@
  
  <!-- 게시글 생성 -->
  <insert id="createBoard">
- 	INSERT INTO Board (title,content,pwd,author) values (#{title},#{content},#{pwd},#{author})
+ 	INSERT INTO Board (title,content,author) values (#{title},#{content},#{author})
  </insert>
  
  
  
  <!-- 게시글 수정 -->
  <update id="modifyBoard">
- UPDATE Board SET title=#{title}, content=#{content}, author=#{author}, pwd=#{pwd}
- WHERE pid = #{pid}
+ UPDATE Board SET title=#{title}, content=#{content} WHERE pid = #{pid}
  </update>
   
   

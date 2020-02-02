@@ -4,7 +4,6 @@ public class BoardVO {
 	private int pid;
 	private String title;
 	private String content;
-	private String pwd;
 	private String author;
 	
 	public int getPid() {
@@ -24,12 +23,6 @@ public class BoardVO {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public String getPwd() {
-		return pwd;
-	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
 	}
 	public String getAuthor() {
 		return author;
