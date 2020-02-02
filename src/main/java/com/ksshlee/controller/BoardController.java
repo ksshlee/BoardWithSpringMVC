@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +48,11 @@ public class BoardController {
 
 	// 글 쓰기 POST
 	@RequestMapping(value = "/newBoard", method = RequestMethod.POST)
-	public String newBoardPost(BoardVO board) throws Exception {
+	public String newBoardPost(BoardVO board,HttpSession session) throws Exception {
+		
+		board.setAuthor((String) (session.getAttribute("sessionUserId")));
+		
+		
 		service.createBoard(board);
 		return "redirect:/";
 	}

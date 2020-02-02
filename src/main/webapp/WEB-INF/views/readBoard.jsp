@@ -24,29 +24,7 @@
 
         form.appendChild(hidden2);
   
-        
-        var hidden1 = document.createElement("input");
-
-       	
-        hidden1.setAttribute("type", "input");
-
-        hidden1.setAttribute("name", "author");
-
- 
-        
-        form.appendChild(hidden1);
-		
-        
-        var hidden3 = document.createElement("input"); 
-
-        hidden3.setAttribute("type", "password");
-
-        hidden3.setAttribute("name", "pwd");
-
-        form.appendChild(hidden3);
       
-        
-        
         var submit = document.createElement("input"); 
         
         submit.setAttribute("type","submit");
@@ -110,29 +88,7 @@
 
         form.appendChild(hidden2);
         
-        
-        
-        
-        var hidden1 = document.createElement("input");
-
-        hidden1.setAttribute("type", "input");
-
-        hidden1.setAttribute("name", "author");
-
-        form.appendChild(hidden1);
-        
-        
-        var hidden3 = document.createElement("input"); 
-
-        hidden3.setAttribute("type", "password");
-
-        hidden3.setAttribute("name", "pwd");
-
-        form.appendChild(hidden3);
-        
-		
-
-        
+  
         var submit = document.createElement("input"); 
         
         submit.setAttribute("type","submit");
@@ -162,29 +118,6 @@
         hidden2.setAttribute("name", "content");
 
         form.appendChild(hidden2);
-        
-        
-        
-        
-        var hidden1 = document.createElement("input");
-
-        hidden1.setAttribute("type", "input");
-
-        hidden1.setAttribute("name", "author");
-
-        form.appendChild(hidden1);
-        
-        
-        var hidden3 = document.createElement("input"); 
-
-        hidden3.setAttribute("type", "password");
-
-        hidden3.setAttribute("name", "pwd");
-
-        form.appendChild(hidden3);
-        
-		
-
         
         var submit = document.createElement("input"); 
         
@@ -229,21 +162,23 @@
 
 	<a href="/study">목록</a>
 	<br>
+	<c:choose>
 
-	<a href="modify?pid=${boardVO.pid}">수정</a>
-	<br>
+		<c:when test="${sessionUserId eq boardVO.author}">
+			<a href="modify?pid=${boardVO.pid}">수정</a>
+			<br>
 
-	<a href="deleteBoard?pid=${boardVO.pid}">삭제</a>
+			<a href="deleteBoard?pid=${boardVO.pid}">삭제</a>
+			<br>
+		</c:when>
 
-
-	<br>
-
+	</c:choose>
 
 	<br>
 	<hr>
 
 	<h3>댓글</h3>
-	
+
 
 	<table border=1>
 		<tbody>
@@ -253,27 +188,40 @@
 					<td width="30%">${comment.content}
 					<th>작성자
 					<td>${comment.author}
-					<th><a
-						href="deleteComment?cid=${comment.cid}&pid=${boardVO.pid}">삭제</a>
-		
-					<!-- test 중 동적으로 form 생성 -->
- 					<th><input type="button" onclick="modify_click(${boardVO.pid},${comment.cid},${comment.rcid});" value="수정"
-						id="coc"></th>
-					<th><input type="button" onclick="commentofcomment(${comment.cid},${boardVO.pid});" value="답글"></th>
-
+					<c:if test="${!empty sessionUserId }">
+							
+								<c:if test="${sessionUserId eq comment.author or sessionUserId eq boardVO.author}">
+									<th><a
+										href="deleteComment?cid=${comment.cid}&pid=${boardVO.pid}">삭제</a></th>
+								</c:if>
+								<c:if test="${sessionUserId eq comment.author}">
+									<th><input type="button"
+										onclick="modify_click(${boardVO.pid},${comment.cid},${comment.rcid});"
+										value="수정" id="coc"></th>
+								</c:if>
+					
+							
+							
+							
+							<th><input type="button"
+								onclick="commentofcomment(${comment.cid},${boardVO.pid});"
+								value="답글"></th>
+						</c:if> 
 				</tr>
-				
+
 			</c:forEach>
 
 		</tbody>
 	</table>
-	
-	
-	
-	<!-- test중 동적 form 생성 -->
-	<input type="button" onclick="comment_click();" value="댓글쓰기">
-	
-	
+
+
+
+	<c:if test="${!empty sessionUserId }">
+		<input type="button" onclick="comment_click();" value="댓글쓰기">
+	</c:if>
+
+
+
 
 </body>
 

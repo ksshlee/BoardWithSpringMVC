@@ -20,14 +20,14 @@
   
   <!-- 댓글 생성 -->
    <insert id="createComment">
- 	INSERT INTO comment (bid,content,pwd,author) values (#{bid},#{content},#{pwd},#{author})
+ 	INSERT INTO comment (bid,content,author) values (#{bid},#{content},#{author})
  </insert>
  
  
  
  <!-- 댓글 수정 -->
   <update id="modifyComment">
- UPDATE comment SET content=#{content}, author=#{author}, pwd=#{pwd}
+ UPDATE comment SET content=#{content}
  WHERE cid = #{cid}
  </update>
  
@@ -35,7 +35,7 @@
  
    <!-- 대댓글 생성 -->
    <insert id="createCommentOfComment">
- 	INSERT INTO comment (bid,content,pwd,author,rcid) values (#{bid},#{content},#{pwd},#{author},#{rcid})
+ 	INSERT INTO comment (bid,content,author,rcid) values (#{bid},#{content},#{author},#{rcid})
  </insert>
  
  

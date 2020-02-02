@@ -7,5 +7,6 @@
 	<typeAliases>
 		<typeAlias type="com.ksshlee.dto.BoardVO" alias="boardVO" />
 		<typeAlias type="com.ksshlee.dto.CommentVO" alias="commentVO" />
+		<typeAlias type="com.ksshlee.dto.UserVO" alias="userVO" />
 	</typeAliases>
 </configuration>
