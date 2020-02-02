@@ -40,6 +40,15 @@
 		</dependency>
 
 
+		<!-- password hash -->
+		<dependency>
+			<groupId>org.mindrot</groupId>
+			<artifactId>jbcrypt</artifactId>
+			<version>0.3m</version>
+		</dependency>
+
+
+
 
 
 		<!-- Spring -->
