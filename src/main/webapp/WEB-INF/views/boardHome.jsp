@@ -13,7 +13,8 @@
 
 
 <a href="./newBoard">글쓰기</a>
-
+<a href="./login">로그인</a>
+<a href="./register">회원가입</a>
 
 <table border=1>
 	<thead>
