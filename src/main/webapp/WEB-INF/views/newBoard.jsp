@@ -17,10 +17,6 @@
 
 내용 : <textarea cols="50" rows="10" name="content"></textarea><br>
 
-작성자 : <input type="text" name="author"><br>
-
-비밀번호 : <input type="password" name="pwd"><br>
-
 
 <input type="submit" value="글쓰기">
 
